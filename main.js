@@ -10,10 +10,9 @@ window.onload = function(){
     const date = new Date();
 
     let currentDay = date.getDate();
-    let currentMonth = date.getMonth();
+    let currentMonth = date.getMonth()+1;
     let currentYear = date.getFullYear();
     
-    console.log(currentDay);
     const typeOfError = [
         "",
         "This field is required",
@@ -23,7 +22,6 @@ window.onload = function(){
         "Must be a valid date"
     ];
     const errorState = (numberOfError, typeOfDate, typeOfError,color) => {
-        console.log(typeOfError);
         error[numberOfError].innerHTML = typeOfError;
         labels[numberOfError].style.color = color;
         typeOfDate.style.boderColor = color;
@@ -74,8 +72,8 @@ window.onload = function(){
         spans[0].innerHTML = newYear;
         spans[1].innerHTML = newMonth;
         spans[2].innerHTML = newDay;
-        
     }
+
     const isDayCorrect = () => {
         if(day.value == ""){
             errorState(0, day, typeOfError[1], "#ff5757");
